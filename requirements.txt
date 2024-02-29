@@ -1,0 +1,6 @@
+flask
+flask-socketio
+flask-ipban
+apscheduler
+python-dotenv
+waitress

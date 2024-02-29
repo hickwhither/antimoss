@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+
+{%block body%}
+<form method="POST" class="form-floating m-3" data-bs-theme="dark">
+    <legend>🆘🧑‍💻👻 Antimoss 🔥💔🐧♿</legend>
+
+    <div class="mb-3">
+        <label for="code" class="form-label">Source code:</label>
+        <textarea spellcheck="false" class="form-control bg-transparent border-success text-success" name="code" cols="70" rows="10"></textarea>
+    </div>
+    
+    <div class="mb-3">
+        <label for="code" class="form-label">Moss type:</label>
+        <!-- <input     type="input" class="form-control bg-transparent border-success text-success" id="mosstype" name="mosstype"> -->
+        <select class="form-select bg-transparent border-success text-success" name="mosstype">
+            <option value="1" class="bg-transparent border-success text-success">antimoss.py</option>
+            <option value="2" class="bg-transparent border-success text-success">antimoss2.py</option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-success bg-transparent text-success">
+    <div class = "mb-3">
+        <div>
+            <p>anti moss 1.0</p>
+            <p>giaosu</p>
+            <p>imnotsally2303</p>
+            <p>hickwhither</p>
+        </div>
+    </div>
+</form>
+{%endblock%}
