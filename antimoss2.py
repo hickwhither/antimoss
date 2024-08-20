@@ -12,7 +12,7 @@ STR = string.ascii_letters + string.digits + '_'
 def randomstr() -> str: 
     return random.choice(string.ascii_letters+'_') + ''.join(random.choices(STR, k=random.randint(12, 25)))
 def randomnum() -> str:
-    return f'({random.randint(int(-1e8), int(1e8))})'
+    return f'(int)({random.randint(int(-1e9), int(1e9))})'
 
 # +00 for random =0
 # ;;; for random command
@@ -119,10 +119,10 @@ def equalrandom(depth=0):
     s = random.choice(equalsrandom)
     while s.find('+01') != -1:
         s = s.replace('+01', equalrandom(depth+1), 1)
-    s = f'int ( {s} ) '
+    s = f'(int) ( {s} ) '
     while s.find(' ') != -1:
         s = s.replace(' ', random.choice(['\n', '']), 1)
-    return f'int({s})'
+    return f'(int)({s})'
 
 def equalzero(): return f'{equalrandom()}*0'
 
@@ -175,7 +175,7 @@ def randomfunc():
     return s
 
 
-def antimoss(code):
+def antimoss(code: str):
     while code.find('///') != -1:
         t = random.randint(0, 3)
         if t==0: s = randomdefine()
@@ -204,6 +204,6 @@ if __name__ == '__main__':
 
     code = antimoss(code)
 
-    with open(file2, 'w') as f:
+    with open(file2, 'w', encoding='utf-8') as f:
         f.write(code)
 

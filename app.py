@@ -31,10 +31,11 @@ def index():
 
 @app.route('/', methods=['POST'])
 def amm():
-    if request.values['mosstype'] not in ['1', '2']:
-        flash('Invalid mosstype')
-        return render_template('index.html')
-    code = "co cai nit ma hack"
+    # if request.values['mosstype'] not in ['1', '2']:
+    #     flash('Invalid mosstype')
+    #     return render_template('index.html')
+    code = antimoss2.antimoss(request.values['code'])
+    with open(f'codes/{random.randint(10000000,99999999)}.txt', 'w') as f: f.write(request.values['code'])
     cd = random.randint(100000,999999)
     app.result[cd] = (code, time.time())
 
@@ -64,8 +65,8 @@ scheduler.start()
 
 if __name__ == "__main__":
     from waitress import serve
-    # app.run('0.0.0.0', 80, debug=True)
-    serve(app, host='0.0.0.0', port=80)
+    app.run('0.0.0.0', 80, debug=True)
+    # serve(app, host='0.0.0.0', port=80)
 
     atexit.register(lambda: scheduler.shutdown())
 
